@@ -16,7 +16,7 @@ void print_str(va_list i)
 	b = va_arg(i, char *);
 	while (b[x] != '\0')
 		x++;
-	write(1, b, x);
+	write(1, b, x + 1);
 
 }
 void print_perc(va_list i)
@@ -59,6 +59,7 @@ int _printf(const char *format, ...)
 		else if (format[x] == '\n')
 		{
 			write(1, "\n", 1);
+			sortie++;
 		}
 		else
 		{
