@@ -1,10 +1,29 @@
 #include "main.h"
 
-void print_char(va_list i);
+void print_char(va_list i)
+{
+	char b;
 
-void print_str(va_list i);
+	b = va_arg(i, int);
+	write(1, &b, 1);
+}
 
-void print_perc(va_list i);
+void print_str(va_list i)
+{
+	int x = 0;
+	char *b;
+
+	b = va_arg(i, char *);
+	while (b[x] != '\0')
+		x++;
+	write(1, b, x);
+
+}
+void print_perc(va_list i)
+{
+	(void)i;
+	write(1, "%", 1);
+}
 
 /**
  * _printf - print to stdout
@@ -33,13 +52,20 @@ int _printf(const char *format, ...)
 				{
 					fmt[y].printformat(liste);
 					sortie++;
+					x++;
 				}
 			}
 		}
 		else if (format[x] == '\n')
 		{
-
+			write(1, "\n", 1);
 		}
+		else
+		{
+			write(1, &format[x], 1);
+			sortie++;
+		}
+		x++;
 	}
 	return (sortie);
 }
