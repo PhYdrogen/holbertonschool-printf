@@ -44,6 +44,7 @@ int _printf(const char *format, ...)
 
 	while (format[x] != '\0')
 	{
+		sortie++
 		if (format[x] == '%')
 		{
 			for (y = 0; y < 3; y++)
@@ -70,9 +71,9 @@ int _printf(const char *format, ...)
 		else
 		{
 			write(1, &format[x], 1);
-			sortie++;
+			
 		}
 		x++;
 	}
-	return (sortie);
+	return (sortie+2);
 }
