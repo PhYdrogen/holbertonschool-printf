@@ -49,12 +49,16 @@ int _printf(const char *format, ...)
 			for (y = 0; y < 3; y++)
 			{
 				if (format[x + 1] == fmt[y].perc)
+				
 				{
 					fmt[y].printformat(liste);
 					sortie++;
 					x++;
+					break;
 				}
 			}
+			(if y!=3)
+			{write (1,"%"1); 
 		}
 		else if (format[x] == '\n')
 		{
