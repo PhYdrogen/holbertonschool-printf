@@ -53,7 +53,7 @@ int _printf(const char *format, ...)
 				
 				{
 					fmt[y].printformat(liste);
-					sortie++;
+					
 					x++;
 					break;
 				}
