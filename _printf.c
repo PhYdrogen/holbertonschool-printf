@@ -66,7 +66,7 @@ int _printf(const char *format, ...)
 		else if (format[x] == '\n')
 		{
 			write(1, "\n", 1);
-			sortie++;
+			
 		}
 		else
 		{
@@ -75,5 +75,5 @@ int _printf(const char *format, ...)
 		}
 		x++;
 	}
-	return (sortie+2);
+	return (sortie);
 }
