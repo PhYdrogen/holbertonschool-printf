@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 
 	while (format[x] != '\0')
 	{
-		sortie++
+		sortie++;
 		if (format[x] == '%')
 		{
 			for (y = 0; y < 3; y++)
