@@ -57,8 +57,10 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
-			(if y!=3)
-			{write (1,"%"1); 
+			if (y==3)
+			{
+			write (1,"%",1); 
+		        }
 		}
 		else if (format[x] == '\n')
 		{
