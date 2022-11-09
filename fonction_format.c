@@ -60,10 +60,12 @@ int print_double(va_list valist)
 	i = va_arg(valist,int);
 	div = 1;
 	len = 0;
+	char c;
 	if (i < 0)
 	{
 		num = i * -1;
-		len += print_char('-');
+		c = '-';
+		len += write(1, &c, 1);
 	}
 	else
 	{
@@ -75,7 +77,8 @@ int print_double(va_list valist)
 	}
 	for (; div != 0;)
 	{
-	 	len += print_char('0' + (num /div));
+		c = '0' + (num /div);
+	 	len += print_char(&c);
 		num %= div;
 		div /=10;
 	}
