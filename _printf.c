@@ -19,7 +19,6 @@ int _printf(const char *format, ...)
 	if (!format)
 		return (-1);
 	va_start(liste, format);
-
 	while (format[x] != '\0')
 	{
 		if (format[x] == '%')
@@ -30,30 +29,21 @@ int _printf(const char *format, ...)
 					return (-1);
 
 				else if (format[x + 1] == fmt[y].perc)
-				{
-					sortie += fmt[y].printformat(liste);
+				{	sortie += fmt[y].printformat(liste);
 					x++;
 					break;
-				}
-			}
+				} }
 			if (fmt[y].perc == 0)
-			{
-				fmt[2].printformat(liste);
+			{	fmt[2].printformat(liste);
 				sortie++;
-			}
-		}
+			} }
 		else if (format[x] == '\n')
-		{
-			write(1, "\n", 1);
+		{	write(1, "\n", 1);
 			sortie++;
-		}
-		else
-		{
-			write(1, &format[x], 1);
+		} else
+		{	write(1, &format[x], 1);
 			sortie++;
-		}
-		x++;
-	}
-	va_end(liste);
+		}	x++;
+	}	va_end(liste);
 	return (sortie);
 }
