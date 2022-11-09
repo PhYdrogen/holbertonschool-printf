@@ -63,7 +63,7 @@ int print_double(va_list valist)
 	if (i < 0)
 	{
 		num = i * -1;
-		len += _putchar('-');
+		len += print_char('-');
 	}
 	else
 	{
@@ -75,7 +75,7 @@ int print_double(va_list valist)
 	}
 	for (; div != 0;)
 	{
-	 	len += _putchar('0' + (num /div));
+	 	len += print_char('0' + (num /div));
 		num %= div;
 		div /=10;
 	}
