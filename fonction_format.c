@@ -46,6 +46,37 @@ int print_perc(va_list i)
 	write(1, "%", 1);
 	return (1);
 }
+
+/**
+* print_int - print integer
+* @i: all the word behin ,
+* Return: counter
+*
+*/
+int print_int(va_list i)
+{
+	int b;
+
+	b = va_arg(i, int);
+	write(1, &b, 1);
+	return (1);
+}
+
+
+/**
+* print_double - print double
+* @i: all the word behin ,
+* Return: counter
+*
+*/
+int print_double(va_list i)
+{
+	int b;
+
+	b = va_arg(i, int);
+	write(1, &b, 1);
+	return (1);
+}
 /**
  * verif_next_char - c'est une compression de code car la function
  * fait plus de 40 lignes
@@ -60,6 +91,8 @@ int verif_next_char(const char *format, va_list liste, int *x)
 		{'c', print_char},
 		{'s', print_str},
 		{'%', print_perc},
+		{'i', print_int},
+		{'d', print_double},
 		{0, NULL}
 	};
 	int y = 0, sortie = 0;
