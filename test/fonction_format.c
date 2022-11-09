@@ -78,8 +78,9 @@ int verif_next_char(const char *format, va_list liste, int *x)
 	}
 	if (fmt[y].perc == 0)
 	{
-		fmt[2].printformat(liste);
-		sortie++;
+		write(1, format, 1);
+		write(1, &format[*x + 1], 1);
+		sortie += 2;
 	}
 	return (sortie);
 }
