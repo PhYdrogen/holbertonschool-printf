@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * print_char - blb
+ * @i: all the word behin ,
+ * Return: counter
+ */
 int print_char(va_list i)
 {
 	char b;
@@ -8,7 +12,11 @@ int print_char(va_list i)
 	write(1, &b, 1);
 	return (1);
 }
-
+/**
+ * print_str - blb
+ * @i: all the word behin ,
+ * Return: counter
+ */
 int print_str(va_list i)
 {
 	int x = 0;
@@ -27,7 +35,11 @@ int print_str(va_list i)
 	write(1, b, x);
 	return (x);
 }
-
+/**
+ * print_perc - blb
+ * @i: all the word behin ,
+ * Return: counter
+ */
 int print_perc(va_list i)
 {
 	(void)i;
@@ -50,15 +62,14 @@ int verif_next_char(const char *format, va_list liste, int *x)
 		{'%', print_perc},
 		{0, NULL}
 	};
-	int y = 0, sortie = 0, cpX = 0;
+	int y = 0, sortie = 0;
 
-	cpX = *x;
 	for (y = 0; fmt[y].perc != 0; y++)
 	{
-		if (format[cpX + 1] == '\0')
+		if (format[*x + 1] == '\0')
 			return (-1);
 
-		else if (format[cpX + 1] == fmt[y].perc)
+		else if (format[*x + 1] == fmt[y].perc)
 		{
 			sortie += fmt[y].printformat(liste);
 			x++;
@@ -67,8 +78,9 @@ int verif_next_char(const char *format, va_list liste, int *x)
 	}
 	if (fmt[y].perc == 0)
 	{
-		fmt[2].printformat(liste);
-		sortie++;
+		write(1, format, 1);
+		write(1, &format[*x + 1], 1);
+		sortie += 2;
 	}
 	return (sortie);
 }
