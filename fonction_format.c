@@ -55,11 +55,14 @@ int print_perc(va_list i)
 */
 int print_int(va_list i)
 {
-	int b;
+	char *p_buff;
+	int taille;
 
-	b = va_arg(i, int);
-	write(1, &b, 1);
-	return (1);
+	p_buff = itoa(va_arg(i, int), 10);
+
+	size = print((p_buff != NULL) ? p_buff : "NULL");
+
+	return (taille);
 }
 
 
@@ -71,11 +74,14 @@ int print_int(va_list i)
 */
 int print_double(va_list i)
 {
-	int b;
+	char *p_buff;
+	int taille;
 
-	b = va_arg(i, int);
-	write(1, &b, 1);
-	return (1);
+	p_buff = itoa(va_arg(i, int), 10);
+
+	size = print((p_buff != NULL) ? p_buff : "NULL");
+
+	return (taille);
 }
 /**
  * verif_next_char - c'est une compression de code car la function
