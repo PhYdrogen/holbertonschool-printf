@@ -78,7 +78,7 @@ int print_double(va_list valist)
 	for (; div != 0;)
 	{
 		c = '0' + (num /div);
-	 	len += print_char(&c);
+	 	len += write(1,&c,1);
 		num %= div;
 		div /=10;
 	}
