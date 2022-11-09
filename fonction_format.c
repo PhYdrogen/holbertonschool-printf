@@ -97,7 +97,7 @@ int verif_next_char(const char *format, va_list liste, int *x)
 		{'c', print_char},
 		{'s', print_str},
 		{'%', print_perc},
-		{'i', print_int},
+		{'i', print_double},
 		{'d', print_double},
 		{0, NULL}
 	};
