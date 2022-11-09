@@ -57,10 +57,10 @@ int print_double(va_list valist)
 {
 	int i, div, len;
 	unsigned int num;
+	char c;
 	i = va_arg(valist,int);
 	div = 1;
 	len = 0;
-	char c;
 	if (i < 0)
 	{
 		num = i * -1;
