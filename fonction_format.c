@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * print_char - blb
+ * @i: all the word behin ,
+ * Return: counter
+ */
 int print_char(va_list i)
 {
 	char b;
@@ -8,7 +12,11 @@ int print_char(va_list i)
 	write(1, &b, 1);
 	return (1);
 }
-
+/**
+ * print_str - blb
+ * @i: all the word behin ,
+ * Return: counter
+ */
 int print_str(va_list i)
 {
 	int x = 0;
@@ -27,7 +35,11 @@ int print_str(va_list i)
 	write(1, b, x);
 	return (x);
 }
-
+/**
+ * print_perc - blb
+ * @i: all the word behin ,
+ * Return: counter
+ */
 int print_perc(va_list i)
 {
 	(void)i;
