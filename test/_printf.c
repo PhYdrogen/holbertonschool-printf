@@ -44,27 +44,34 @@ int _printf(const char *format, ...)
 
 	while (format[x] != '\0')
 	{
+		sortie++;
 		if (format[x] == '%')
 		{
 			for (y = 0; y < 3; y++)
 			{
 				if (format[x + 1] == fmt[y].perc)
+				
 				{
 					fmt[y].printformat(liste);
-					sortie++;
+					
 					x++;
+					break;
 				}
 			}
+			if (y==3)
+			{
+			write (1,"%",1); 
+		        }
 		}
 		else if (format[x] == '\n')
 		{
 			write(1, "\n", 1);
-			sortie++;
+			
 		}
 		else
 		{
 			write(1, &format[x], 1);
-			sortie++;
+			
 		}
 		x++;
 	}
