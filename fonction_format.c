@@ -53,36 +53,36 @@ int print_perc(va_list i)
 * Return: counter
 *
 */
-int print_int(va_list i)
+int print_double(va_list valist)
 {
-	char *p_buff;
-	int taille;
-
-	p_buff = itoa(va_arg(i, int), 10);
-
-	size = print((p_buff != NULL) ? p_buff : "NULL");
-
-	return (taille);
+	int i, div, len;
+	unsigned int num;
+	i = va_arg(valist,int);
+	div = 1;
+	len = 0;
+	if (i < 0)
+	{
+		num = i * -1;
+		len += _putchar('-');
+	}
+	else
+	{
+		num = i;
+	}
+	for (; num/div > 9;)
+	{
+		div *= 10;
+	}
+	for (; div != 0;)
+	{
+	 	len += _putchar('0' + (num /div));
+		num %= div;
+		div /=10;
+	}
+	return len;
 }
 
 
-/**
-* print_double - print double
-* @i: all the word behin ,
-* Return: counter
-*
-*/
-int print_double(va_list i)
-{
-	char *p_buff;
-	int taille;
-
-	p_buff = itoa(va_arg(i, int), 10);
-
-	size = print((p_buff != NULL) ? p_buff : "NULL");
-
-	return (taille);
-}
 /**
  * verif_next_char - c'est une compression de code car la function
  * fait plus de 40 lignes
