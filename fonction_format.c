@@ -87,6 +87,45 @@ int print_double(va_list valist)
 
 
 /**
+ * print_int - blb
+ * @i: all the word behin ,
+ * Return: counter
+ */
+int print_int(va_list i)
+{
+	int nb = 0, digit = 0, *y, z = 0, j = 0;
+
+	nb = va_arg(i, int);
+
+	if (nb < 0)
+	{
+		if (nb == INT_MIN)
+			nb += 1;
+		nb *= -1;
+		digit += write(1, "-", 1);
+	}
+	if (nb == 0)
+		return (1);
+
+	y = malloc(1 * (sizeof(int) * (nb / 3)));
+	for (z = 0; nb != 0; z++)
+	{
+		y[z] = (nb % 10) + '0';
+		nb /= 10;
+		digit++;
+	}
+	nb = 0;
+	for (j = (z - 1); nb < digit; j--)
+	{
+		write(1, &y[j], 1);
+		nb++;
+	}
+
+	free(y);
+	return (digit);
+}
+
+/**
  * verif_next_char - c'est une compression de code car la function
  * fait plus de 40 lignes
  * @format: le string initial
@@ -100,8 +139,9 @@ int verif_next_char(const char *format, va_list liste, int *x)
 		{'c', print_char},
 		{'s', print_str},
 		{'%', print_perc},
-		{'i', print_double},
-		{'d', print_double},
+		{'i', print_int},
+		{'d', print_int},
+
 		{0, NULL}
 	};
 	int y = 0, sortie = 0;
