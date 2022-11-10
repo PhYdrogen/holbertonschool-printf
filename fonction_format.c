@@ -53,19 +53,16 @@ int print_perc(va_list i)
  */
 int print_int(va_list i)
 {
-	int nb = 0, digit = 0, *y, z = 0, j = 0, negative = 0;
+	int nb = 0, digit = 0, *y, z = 0, j = 0, negative = 0, flag = 0;
 
 	nb = va_arg(i, int);
-	nb = isnegative(nb, &negative);
+	nb = isnegative(nb, &negative, &flag);
 	if (nb == 0)
-	{
-		write(1, "0", 1);
-		return (1);
-	}
+		return (write(1, "0", 1));
 
 	digit += countdigit(nb);
 
-	y = malloc(1 * (sizeof(int) + digit));
+	y = malloc(1 + (sizeof(int) * digit));
 	if (!y)
 		exit(99);
 
@@ -73,6 +70,11 @@ int print_int(va_list i)
 	nb = 0;
 	for (j = (z - 1); nb < digit; j--)
 	{
+		if (flag == 1 && j == 0)
+		{
+			y[j] += 1;
+			flag--;
+		}
 		write(1, &y[j], 1);
 		nb++;
 	}

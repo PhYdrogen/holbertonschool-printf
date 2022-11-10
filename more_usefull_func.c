@@ -20,9 +20,10 @@ int countdigit(int nb)
  * isnegative - check if number is negative if yes
  * @nb: the number to check
  * @digit: the digit
+ * @flag: a variable if it's 1 i have to do +1 at writing number
  * Return: the number but positive
  */
-int isnegative(int nb, int *digit)
+int isnegative(int nb, int *digit, int *flag)
 {
 	char moins = 45;
 
@@ -33,6 +34,7 @@ int isnegative(int nb, int *digit)
 			nb += 1;
 			nb *= -1;
 			*digit += write(1, &moins, 1);
+			*flag += 1;
 
 		}
 		else
