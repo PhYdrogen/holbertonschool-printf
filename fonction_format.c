@@ -46,46 +46,6 @@ int print_perc(va_list i)
 	write(1, "%", 1);
 	return (1);
 }
-
-/**
-* print_int - print integer
-* @i: all the word behin ,
-* Return: counter
-*
-*/
-int print_double(va_list valist)
-{
-	int i, div, len;
-	unsigned int num;
-	char c;
-	i = va_arg(valist,int);
-	div = 1;
-	len = 0;
-	if (i < 0)
-	{
-		num = i * -1;
-		c = '-';
-		len += write(1, &c, 1);
-	}
-	else
-	{
-		num = i;
-	}
-	for (; num/div > 9;)
-	{
-		div *= 10;
-	}
-	for (; div != 0;)
-	{
-		c = '0' + (num /div);
-	 	len += write(1,&c,1);
-		num %= div;
-		div /=10;
-	}
-	return len;
-}
-
-
 /**
  * print_int - blb
  * @i: all the word behin ,
@@ -94,6 +54,7 @@ int print_double(va_list valist)
 int print_int(va_list i)
 {
 	int nb = 0, digit = 0, *y, z = 0, j = 0;
+	char moins = 45;
 
 	nb = va_arg(i, int);
 
@@ -102,11 +63,13 @@ int print_int(va_list i)
 		if (nb == INT_MIN)
 			nb += 1;
 		nb *= -1;
-		digit += write(1, "-", 1);
+		digit += write(1, &moins, 1);
 	}
 	if (nb == 0)
+	{
+		write(1, "0", 1);
 		return (1);
-
+	}
 	y = malloc(1 * (sizeof(int) * (nb / 3)));
 	for (z = 0; nb != 0; z++)
 	{
@@ -141,7 +104,6 @@ int verif_next_char(const char *format, va_list liste, int *x)
 		{'%', print_perc},
 		{'i', print_int},
 		{'d', print_int},
-
 		{0, NULL}
 	};
 	int y = 0, sortie = 0;
