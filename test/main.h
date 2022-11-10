@@ -1,15 +1,16 @@
 #ifndef MAIN_HEADER
-#define MAIN_HERDER
+#define MAIN_HEADER
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <limits.h>
 
 typedef struct form
 {
 	char perc;
 	int (*printformat)(va_list);
-}fmt_t ;
+} fmt_t;
 
 int _printf(const char *format, ...);
 int print_char(va_list i);
