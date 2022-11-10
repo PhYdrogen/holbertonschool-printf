@@ -53,10 +53,10 @@ int print_perc(va_list i)
  */
 int print_int(va_list i)
 {
-	int nb = 0, digit = 0, *y, z = 0, j = 0;
+	int nb = 0, digit = 0, *y, z = 0, j = 0, negative = 0;
 
 	nb = va_arg(i, int);
-	nb = isnegative(nb, &digit);
+	nb = isnegative(nb, &negative);
 	if (nb == 0)
 	{
 		write(1, "0", 1);
@@ -76,7 +76,7 @@ int print_int(va_list i)
 		write(1, &y[j], 1);
 		nb++;
 	}
-
+	digit += negative;
 	free(y);
 	return (digit);
 }
