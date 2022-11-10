@@ -1,0 +1,29 @@
+.Dd 10/11/2022               
+.Dt _printf
+.Sh NAME
+.Nm _printf \- write character to the stdout formated
+.Sh SYNOPSIS
+.Nm printf
+FORMAT ,
+.OP Ar arg...
+.Op OPTION
+.Ar c, s, i, d
+.Sh DESCRIPTION
+print argument according to format (see OPTION)
+.Sh OPTIONS
+.Bl -tag -width -indent
+.It Fl %s
+print string from arguments
+.It Fl %c
+print char from arguments
+.It Fl %d
+print decimals
+.It Fl %i
+print integer
+.El
+.Sh SEE ALSO
+.Xr printf 1 ,
+.Xr scanf 3 ,
+.Xr git 1 ,
+.Xr ls 1 ,
+.Xr xargs 1
